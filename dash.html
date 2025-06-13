@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SEIZEN[PROTOTYPE]</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" type="text/css" href="dash.css">
+</head>
+<body>
+  <nav>
+    <div class="szn"><span>SZN</span></div>
+    <a href="#" style="color: #FB8B24;">
+      <span class="a-pre">P</span>
+      <span class="a-post">Projects</span>
+    </a>
+    <a href="#" style="color: #5C95FF;">
+      <span class="a-pre">T</span>
+      <span class="a-post">Tasks</span>
+    </a>
+    <a href="#" style="color: #3E3E3E;">
+      <span class="a-pre">S</span>
+      <span class="a-post">Settings</span>
+    </a>
+    <a href="#" style="color: #3E3E3E;">
+      <span class="a-pre">[PH]</span>
+      <span class="a-post">[PH]</span>
+    </a>
+  </nav>
+
+  <div>
+    <h1 class="main-title">SEIZEN</h1>
+  </div>
+  <div class="main-content">
+    <div class="box-projects">
+      <h1 class="box-projects-title">Projects <button onclick="openProjectModal()">Add project</button></h1>
+      <div class="a-line"></div>
+      <div id="projectList"></div>
+      <!-- Project Modal -->
+      <div id="projectModal" class="modal">
+        <div class="modal-content">
+          <h3>New Project</h3>
+          <input id="projectName" type="text" placeholder="Project name" />
+          <textarea id="projectDesc" rows="3" placeholder="Project description"></textarea>
+          <input id="projectDeadline" type="datetime-local" />
+          <button onclick="addProject()">Add Project</button>
+          <button onclick="closeProjectModal()">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Project Task Modal -->
+      <div id="projectTaskModal" class="modal">
+        <div class="modal-content">
+          <h3>Add Task to Project</h3>
+          <input id="projTaskName" type="text" placeholder="Task name" />
+          <textarea id="projTaskDesc" rows="3" placeholder="Task description"></textarea>
+          <input id="projTaskDeadline" type="datetime-local" />
+          <button onclick="confirmAddTaskToProject()">Add Task</button>
+          <button onclick="closeProjectTaskModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-tasks">                                                                       <!--task box-->
+      <h1 class="box-tasks-title">Tasks <button onclick="openModal()">Add Task</button></h1>
+      <div class="a-line"></div>
+      <ul id="taskList"></ul>
+      <div id="taskModal" class="modal">
+        <div class="modal-content">
+          <h3>New Task</h3>
+          <input id="taskName" type="text" placeholder="Task name" />
+          <textarea id="taskDesc" rows="3" placeholder="Task description"></textarea>
+          <input id="taskDeadline" type="datetime-local" />
+          <button onclick="addTaskFromModal()">Add</button>
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div class="box-calendar">Calendar</div>
+    <div class="box-rec">
+      <div id="recommendationModal" class="modal">
+        <div class="modal-content">
+          <h3>All Upcoming Tasks</h3>
+          <ul id="allRecommendations"></ul>
+          <button onclick="closeAllRecommendationsModal()">Close</button>
+        </div>
+      </div>
+      <h1 class="box-rec-title">Reccomendation</h1>
+      <div class="a-line"></div>
+      <button onclick="openAllRecommendationsModal()">View All</button>
+      <div id="recommendations" style="margin-left: 15px;"></div>
+    </div>
+  </div>
+
+  <script src="dash.js"></script>
+
+</body>
+</html>
